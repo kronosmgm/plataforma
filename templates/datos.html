@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+{% block title %}Editar{% endblock %}
+{% block content %}
+<body>
+    <h1>Datos de Usuarios</h1>
+    <table class="table-container">
+        <tr>
+            <th>ID</th>
+            <th>Nombre</th>
+        </tr>
+        {% for usuario in usuarios %}
+        <tr>
+            <td>{{ usuario[0] }}</td>
+            <td>{{ usuario[1] }}</td>
+            <td><form action="{{ url_for('borrar_dato', id=usuario[0]) }}" method="post"> 
+            <button type="submit">Borrar</button></form>
+            </td>
+            </tr>
+        {% endfor %}
+    </table>
+</body>
+{% endblock %}

@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+{% block title %}Editar{% endblock %}
+{% block content %}
+ 
+    
+        <h1>DASHBOARD</h1>
+        
+        </head>
+        <body>
+            <div class="content">
+                <table class="table-container">
+                    <thead>
+                        <tr>
+                            <th>id</th>
+                            <th>nombre</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                      {% for usuario in usuarios %}
+                        <tr>
+                            <td>{{ usuario[0] }}</td>
+                            <td>{{ usuario[1] }}</td>
+                        </tr>
+                        {% endfor %}
+                      </tbody>
+                </table>
+            </div>
+          
+        </body>
+    {% endblock %}

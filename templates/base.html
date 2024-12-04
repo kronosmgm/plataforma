@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <title>{% block title %}plataforma{% endblock %}</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+</head>
+<body>
+    <header>
+            <nav class="navbar-menu">
+              <li class="navbarit">
+                <a class="nav-link" href="/logout">Salir</a>
+              </li>
+                  <center><div class="navbar">
+                    <ul>
+                      <li>
+                        <a class="nav-link" aria-current="page" href="/ret">inicio</a>
+                      </li>
+                      <li class="nav-item">
+                        <a class="nav-link" href="/datos">cursos</a>
+                      </li>
+                      <li class="nav-item">
+                        <a class="nav-link" href="#">progreso</a>
+                      </li>
+                      <li class="nav-item">
+                        <a class="nav-link" href="#">seguimiento</a>
+                      </li>
+                    </ul>
+
+                  </div></center>
+                  
+                
+              </nav>
+            
+    </header>
+    <main>
+        {% block content %}{% endblock %}
+    </main>
+    <footer>
+        <center><p>&copy; 2024 examen 2 parcial TEM-742. Todos los derechos reservados.</p></center>
+    </footer>
+</body>
+</html>
