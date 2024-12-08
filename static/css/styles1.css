@@ -84,7 +84,7 @@ form {
 }
 
 input {
-	background-color: #eee;
+	background-color: #caf8c1;
 	border: none;
 	padding: 12px 15px;
 	margin: 8px 0;
@@ -100,7 +100,7 @@ input {
 	overflow: hidden;
 	width: 768px;
 	max-width: 100%;
-	min-height: 480px;
+	min-height: 600px;
 }
 
 .form-container {

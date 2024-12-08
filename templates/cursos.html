@@ -3,13 +3,19 @@
 {% block content %}
 <body>
     <center><h1>Descripcion del Curso</h1></center>
+    {% for usuario in usuarios %}
+    <div class="bloque-texto">
+        <center><h1>¡Bienvenidos a {{ usuario[1] }}!</h1>
+          Estamos emocionados de tenerte aquí en nuestra comunidad de aprendizaje en línea. <br>
+          En [Nombre de la Plataforma], creemos que la educación es la clave para desbloquear nuevas oportunidades y alcanzar tus metas personales y profesionales. <br>
+          Nuestra misión es brindar acceso a una educación de alta calidad y flexible, sin importar dónde te encuentres.<br>
+        </center>
     <table class="table-container">
         <tr>
             <th>ID</th>
             <th>Nombre</th>
             <th>Accion</th>
         </tr>
-        {% for usuario in usuarios %}
         <tr>
             <td>{{ usuario[0] }}</td>
             <td>{{ usuario[1] }}</td>
@@ -17,7 +23,9 @@
             <button type="submit">Borrar</button></form>
             </td>
             </tr>
-        {% endfor %}
+        
     </table>
+</div>
+{% endfor %}
 </body>
 {% endblock %}

@@ -7,23 +7,18 @@
     <title>LOGIN</title>
     
   </head>
-  <body><div class="bloque-texto">
+  <body><div>
     
-      <center><label><h1>¡Bienvenidos a [Nombre de la Plataforma]!</h1>
+      <center><h1>¡Bienvenidos a [Nombre de la Plataforma]!</h1>
 
-        Estamos emocionados de tenerte aquí en nuestra comunidad de aprendizaje en línea. <br>
+        Estamos emocionados de tenerte aquí en nuestra comunidad de aprendizaje en línea. <br><br>
         En [Nombre de la Plataforma], creemos que la educación es la clave para desbloquear nuevas oportunidades y alcanzar tus metas personales y profesionales. <br>
-        Nuestra misión es brindar acceso a una educación de alta calidad y flexible, sin importar dónde te encuentres.<br>
-      </label></center><br><br>
-
-
-
-    
+      </center><br><br>
     </div>
     <div class="container" id="container">
               <div class="form-container sign-up-container">
 
-                <form action="/register" method="POST" onsubmit="registrarUsuario()">
+                <form action="/register" method="POST">
                   <h1> Crear una cuenta </h1><br>
                   <div>
                     <label for="carnet" class="form-label">Cedula de Identidad:</label>
@@ -79,6 +74,14 @@
           </div>
     </div>
     </div>
+    <div id="result"></div>
+    <script>
+      const res=document.getElementById('result');
+      function showResult(data){
+        res.textContent=data.message;
+      }
+    </script>
+
   </body>
   <script>
     const signUpButton = document.getElementById("signUp");
@@ -92,12 +95,6 @@
     signInButton.addEventListener("click", () => {
       container.classList.remove("right-panel-active");
     });
-    </script>
-    <script> 
-      function registrarUsuario() { 
-       alert('¡Cuenta creada exitosamente! ahora ya puedes ingresar!'); 
-       window.location.href ='index.html';
-      }
     </script>
     
 </html>
