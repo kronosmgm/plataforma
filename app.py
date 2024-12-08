@@ -15,8 +15,9 @@ def init_db():
     cursor.execute(
         """
         CREATE TABLE IF NOT EXISTS usuarios(
-            id INTEGER PRIMARY KEY,
+            carnet INTEGER PRIMARY KEY,
             nombre TEXT NOT NULL,
+            apellido TEXT NOT NULL,
             username TEXT NOT NULL,
             password TEXT NOT NULL
         )
@@ -42,7 +43,9 @@ def index():
 @app.route("/register",methods=['GET','POST'])
 def register():
     if request.method == 'POST':
+        carnet =  request.form['carnet']
         nombre =  request.form['nombre']
+        apellido =  request.form['apellido']
         username = request.form['username']
         password = request.form['password']
         # Encriptar el password
@@ -50,7 +53,7 @@ def register():
         # Almacenar en la base de datos
         conn =  sqlite3.connect("inventarios.db")
         cursor = conn.cursor()
-        cursor.execute("INSERT INTO usuarios (nombre,username,password) VALUES (?,?,?)",(nombre, username,password_encriptado))
+        cursor.execute("INSERT INTO usuarios (carnet,nombre,apellido,username,password) VALUES (?,?,?,?,?)",(carnet,nombre,apellido,username,password_encriptado))
         conn.commit()
         conn.close()
         return redirect("/ret")
@@ -72,7 +75,7 @@ def login():
         conn.close()
         
         if usuario and check_password_hash(usuario['password'],password):
-            session['user_id'] = usuario['id']
+            session['user_id'] = usuario['carnet']
             return redirect('/ret')
                 
     return render_template('auth/login.html')
@@ -95,7 +98,7 @@ def dashboard():
 def obtener_datos():
     conn = sqlite3.connect('inventarios.db')
     cursor = conn.cursor()
-    cursor.execute('SELECT id, nombre FROM usuarios')
+    cursor.execute('SELECT carnet, nombre, apellido, username FROM usuarios')
     datos = cursor.fetchall()
     conn.close()
     return datos
@@ -106,11 +109,11 @@ def mostrar_datos():
     datos = obtener_datos()
     return render_template('datos.html', usuarios=datos)
 
-@app.route('/borrar/<int:id>', methods=['POST']) 
-def borrar_dato(id): 
+@app.route('/borrar/<int:carnet>', methods=['POST']) 
+def borrar_dato(carnet): 
     conn = sqlite3.connect('inventarios.db') 
     cursor = conn.cursor() 
-    cursor.execute('DELETE FROM usuarios WHERE id = ?', (id,)) 
+    cursor.execute('DELETE FROM usuarios WHERE carnet= ?', (carnet)) 
     conn.commit() 
     conn.close() 
     return redirect(url_for('mostrar_datos'))

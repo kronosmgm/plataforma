@@ -7,16 +7,36 @@
     <title>LOGIN</title>
     
   </head>
-  <body>
+  <body><div class="bloque-texto">
+    
+      <center><label><h1>¡Bienvenidos a [Nombre de la Plataforma]!</h1>
+
+        Estamos emocionados de tenerte aquí en nuestra comunidad de aprendizaje en línea. <br>
+        En [Nombre de la Plataforma], creemos que la educación es la clave para desbloquear nuevas oportunidades y alcanzar tus metas personales y profesionales. <br>
+        Nuestra misión es brindar acceso a una educación de alta calidad y flexible, sin importar dónde te encuentres.<br>
+      </label></center><br><br>
+
+
+
+    
+    </div>
     <div class="container" id="container">
               <div class="form-container sign-up-container">
 
                 <form action="/register" method="POST" onsubmit="registrarUsuario()">
                   <h1> Crear una cuenta </h1><br>
                   <div>
-                    <label for="nombre" class="form-label">Nombre completo:</label>
+                    <label for="carnet" class="form-label">Cedula de Identidad:</label>
+                    <input type="integer" class="form-control" name="carnet" required>
+                 </div>
+                  <div>
+                    <label for="nombre" class="form-label">Nombre:</label>
                     <input type="text" class="form-control" name="nombre" required>
                 </div>
+                <div>
+                  <label for="apellido" class="form-label">apellido:</label>
+                  <input type="text" class="form-control" name="apellido" required>
+              </div>
                 <div>
                     <label for="username" class="form-label">Usuario:</label>
                     <input type="text" class="form-control" name="username" required>

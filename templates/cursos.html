@@ -2,21 +2,17 @@
 {% block title %}Editar{% endblock %}
 {% block content %}
 <body>
-    <h1>Datos de Usuarios</h1>
+    <center><h1>Descripcion del Curso</h1></center>
     <table class="table-container">
         <tr>
-            <th>carnet</th>
+            <th>ID</th>
             <th>Nombre</th>
-            <th>Apellido</th>
-            <th>Usuario</th>
             <th>Accion</th>
         </tr>
         {% for usuario in usuarios %}
         <tr>
             <td>{{ usuario[0] }}</td>
             <td>{{ usuario[1] }}</td>
-            <td>{{ usuario[2] }}</td>
-            <td>{{ usuario[3] }}</td>
             <td><form action="{{ url_for('borrar_dato', carnet=usuario[0]) }}" method="post"> 
             <button type="submit">Borrar</button></form>
             </td>
