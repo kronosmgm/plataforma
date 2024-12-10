@@ -3,73 +3,18 @@
 {% block content %}
     <center>
       <body>
-        
-        <div class="bloque-interactivo" >
-        
-          <label><h2>¡Bienvenidos a [Nombre de la Plataforma]!</h2>
-            
-            Estamos emocionados de tenerte aquí en nuestra comunidad de aprendizaje en línea. <br>
-            En [Nombre de la Plataforma], creemos que la educación es la clave para desbloquear nuevas oportunidades y alcanzar tus metas personales y profesionales. <br>
-            Nuestra misión es brindar acceso a una educación de alta calidad y flexible, sin importar dónde te encuentres.<br>
+        <h1>cursos disponibles</h1>
+        {% for usuario in dacursos %}
+        <div class="bloque-interactivo"onclick="location.href='{{ url_for('ver_dato', codigo=usuario[0]) }}'">
+          <label>
+            <h2>{{ usuario[1] }}</h2>
+            {{ usuario[2] }}
           </label><br><br>
           </div>
-          <div class="bloque-interactivo">
-        
-            <label><h1>¡Bienvenidos a [Nombre de la Plataforma]!</h1>
-  
-              Estamos emocionados de tenerte aquí en nuestra comunidad de aprendizaje en línea. <br>
-              En [Nombre de la Plataforma], creemos que la educación es la clave para desbloquear nuevas oportunidades y alcanzar tus metas personales y profesionales. <br>
-              Nuestra misión es brindar acceso a una educación de alta calidad y flexible, sin importar dónde te encuentres.<br>
-              
-              
-              </label><br><br>
-            </div>
-            <div class="bloque-interactivo">
-        
-              <label><h1>¡Bienvenidos a [Nombre de la Plataforma]!</h1>
-    
-                Estamos emocionados de tenerte aquí en nuestra comunidad de aprendizaje en línea. <br>
-                En [Nombre de la Plataforma], creemos que la educación es la clave para desbloquear nuevas oportunidades y alcanzar tus metas personales y profesionales. <br>
-                Nuestra misión es brindar acceso a una educación de alta calidad y flexible, sin importar dónde te encuentres.<br>
-                </label><br><br>
-              </div>
-              <div class="bloque-interactivo">
-        
-                <label><h1>¡Bienvenidos a [Nombre de la Plataforma]!</h1>
-      
-                  Estamos emocionados de tenerte aquí en nuestra comunidad de aprendizaje en línea. <br>
-                  En [Nombre de la Plataforma], creemos que la educación es la clave para desbloquear nuevas oportunidades y alcanzar tus metas personales y profesionales. <br>
-                  Nuestra misión es brindar acceso a una educación de alta calidad y flexible, sin importar dónde te encuentres.<br>
-                  
-                  ¿Qué Ofrecemos?<br>
-                  Cursos Diversos: Desde tecnología y negocios hasta arte y bienestar, ofrecemos una amplia variedad de cursos diseñados para satisfacer tus intereses y necesidades.<br>
-                  Expertos en la Materia: Aprende de los mejores. Nuestros instructores son profesionales experimentados y apasionados por compartir su conocimiento.<br>
-                  Flexibilidad Total: Aprende a tu propio ritmo, en cualquier momento y desde cualquier lugar. Nuestra plataforma está disponible las 24 horas del día, los 7 días de la semana.<br>
-                                          
-                  ¿Por Qué Elegirnos?<br>
-                  En [Nombre de la Plataforma], entendemos que cada persona tiene un estilo y ritmo de aprendizaje únicos. <br>
-                  Es por eso que hemos diseñado nuestra plataforma para ser intuitiva, accesible y rica en contenido interactivo. <br>
-                  Aquí, no solo adquirirás conocimientos, sino que también desarrollarás habilidades prácticas que podrás aplicar en tu vida diaria y en tu carrera.<br>
-                  </label><br><br>
-                </div>
-                <div class="bloque-interactivo">
-        
-                  <label><h1>¡Bienvenidos a [Nombre de la Plataforma]!</h1>
-        
-                    Estamos emocionados de tenerte aquí en nuestra comunidad de aprendizaje en línea. <br>
-                    En [Nombre de la Plataforma], creemos que la educación es la clave para desbloquear nuevas oportunidades y alcanzar tus metas personales y profesionales. <br>
-                    Nuestra misión es brindar acceso a una educación de alta calidad y flexible, sin importar dónde te encuentres.<br>
-                    </label><br><br>
-                  </div>
-                  <div class="bloque-interactivo">
-        
-                    <label><h1>¡Bienvenidos a [Nombre de la Plataforma]!</h1>
-          
-                      Estamos emocionados de tenerte aquí en nuestra comunidad de aprendizaje en línea. <br>
-                      En [Nombre de la Plataforma], creemos que la educación es la clave para desbloquear nuevas oportunidades y alcanzar tus metas personales y profesionales. <br>
-                      Nuestra misión es brindar acceso a una educación de alta calidad y flexible, sin importar dónde te encuentres.<br>
-                      </label><br><br>
-                    </div>
-  </body>
+        {% endfor %}
+  </body> 
     {% endblock %}
+    
+    
+    
     

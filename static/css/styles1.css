@@ -1,4 +1,3 @@
-
 @import url('https://fonts.googleapis.com/css?family=Montserrat:400,800');
 
 * {
@@ -6,9 +5,9 @@
 }
 
 body {
-	background: #a5ddbb;
-	background: -webkit-linear-gradient(to right, #97df75, #066b30);
-	background: linear-gradient(to right, #dcecd2, #0b9c48);
+	background-image: url('/static/images/fondo3.jpg'); /* Ruta a la imagen de fondo */ 
+	background-size: cover; /* Hace que la imagen cubra todo el fondo */ 
+	background-repeat: no-repeat;
 	display: flex;
 	justify-content: center;
 	align-items: center;
@@ -92,7 +91,7 @@ input {
 }
 
 .container {
-	background-color: #fff;
+	
 	border-radius: 10px;
   	box-shadow: 0 14px 28px rgba(0,0,0,0.25), 
 			0 10px 10px rgba(0,0,0,0.22);
@@ -248,5 +247,67 @@ input {
 	margin-top: 10%;
 	color: #6a84a0;
   }
+   
+  .popup-fondo {
+	display: none; /* Ocultar por defecto */
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background-color: rgba(0, 0, 0, 0.5); /* Fondo semi-transparente */
+	justify-content: center;
+	align-items: center;
+}
+
+/* Estilos para el contenido del popup */
+.popup-contenido {
+	background-color: white;
+	padding: 20px;
+	border-radius: 10px;
+	box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+	width: 80%;
+	max-width: 500px;
+	text-align: center;
+}
+
+/* Estilos para el botón de cerrar */
+.cerrar-btn {
+	background-color: #007BFF;
+	color: white;
+	border: none;
+	padding: 10px 20px;
+	border-radius: 5px;
+	cursor: pointer;
+	margin-top: 20px;
+}
+.mi-label { 
+	font-family: 'Monserrat', sans-serif, bold; 
+	font-size: 30px; color: #160505; 
+	padding: 10px 10px; 
+	border-radius: 5px; 
+	margin-bottom: 10px; 
+	display: inline-block; }/* Asegura que el label se comporte como un elemento inline */ 
+	
+        .green-select {
+            appearance: none;
+            -webkit-appearance: none;
+            -moz-appearance: none;
+            width: 200px;
+            padding: 10px;
+            border: 2px solid #4CAF50;
+            border-radius: 5px;
+            background-color: #e8f5e9; /* Fondo verde claro */
+            color: #2e7d32; /* Texto verde oscuro */
+            font-size: 16px;
+            outline: none;
+            cursor: pointer;
+        }
+        
+        .green-select:focus {
+            border-color: #2e7d32;
+            box-shadow: 0 0 5px rgba(46, 125, 50, 0.5);
+        }
+    
 
 

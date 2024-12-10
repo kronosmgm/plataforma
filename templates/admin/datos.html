@@ -1,0 +1,90 @@
+{% extends "admin/baseadm.html" %}
+{% block title %}Editar{% endblock %}
+{% block content %}
+<body>
+    <h1>Datos de Usuarios</h1>
+    <table class="table-container">
+        <tr>
+            <th>carnet</th>
+            <th>Nombre</th>
+            <th>Apellido</th>
+            <th>Usuario</th>
+            <th>Accion</th>
+        </tr>
+        {% for usuario in usuarios %}
+        <tr>
+            <td>{{ usuario[0] }}</td>
+            <td>{{ usuario[1] }}</td>
+            <td>{{ usuario[2] }}</td>
+            <td>{{ usuario[3] }}</td>
+            <td><form action="{{ url_for('borrar_dato', carnet=usuario[0]) }}" method="post"> 
+            <button type="submit">Borrar</button></form>
+            </td>
+            </tr>
+        {% endfor %}
+    </table>
+    <h1>Datos de docente</h1>
+    <table class="table-container">
+        <tr>
+            <th>carnet</th>
+            <th>Nombre</th>
+            <th>Apellido</th>
+            <th>Usuario</th>
+            <th>Accion</th>
+        </tr>
+        {% for usuario in doce %}
+        <tr>
+            <td>{{ usuario[0] }}</td>
+            <td>{{ usuario[1] }}</td>
+            <td>{{ usuario[2] }}</td>
+            <td>{{ usuario[3] }}</td>
+            <td>{{ usuario[4] }}</td>
+            <td><form action="{{ url_for('borrar_datodoc', carnet=usuario[0]) }}" method="post"> 
+                <button type="submit">Borrar</button></form>
+            </td>
+            </tr>
+        {% endfor %}
+    </table>
+    <h1>Datos de curso</h1>
+    <table class="table-container">
+        <tr>
+            <th>carnet</th>
+            <th>Nombre</th>
+            <th>Apellido</th>
+            <th>Accion</th>
+        </tr>
+        {% for cur in curs %}
+        <tr>
+            <td>{{ cur[0] }}</td>
+            <td>{{ cur[1] }}</td>
+            <td>{{ cur[2] }}</td>
+            <td>{{ cur[3] }}</td>
+            <td><form action="{{ url_for('borrar_datocur', carnet=cur[0]) }}" method="post"> 
+                <button type="submit">Borrar</button></form>
+            </td>
+            </tr>
+        {% endfor %}
+    </table>
+    <h1>Datos de administrador</h1>
+    <table class="table-container">
+        <tr>
+            <th>carnet</th>
+            <th>Nombre</th>
+            <th>Usuario</th>
+            
+        </tr>
+        {% for usuario in adm %}
+        <tr>
+            <td>{{ usuario[0] }}</td>
+            <td>{{ usuario[1] }}</td>
+            <td>{{ usuario[2] }}</td>
+            <td><form action="{{ url_for('borrar_datoadm', carnet=usuario[0]) }}" method="post"> 
+                <button type="submit">Borrar</button></form>
+            
+            </td>
+            </tr>
+        {% endfor %}
+    </table>
+
+</body>
+{% endblock %}

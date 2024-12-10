@@ -9,11 +9,11 @@
   </head>
   <body><div>
     
-      <center><h1>¡Bienvenidos a [Nombre de la Plataforma]!</h1>
-
-        Estamos emocionados de tenerte aquí en nuestra comunidad de aprendizaje en línea. <br><br>
-        En [Nombre de la Plataforma], creemos que la educación es la clave para desbloquear nuevas oportunidades y alcanzar tus metas personales y profesionales. <br>
-      </center><br><br>
+      <center><h2>¡Bienvenidos a EduVerse!</h2>
+        <label class="mi-label">
+        Estamos emocionados de tenerte aquí en nuestra comunidad de aprendizaje en línea. <br>
+        En EduVerse , creemos que la educación es la clave para desbloquear nuevas oportunidades y alcanzar tus metas personales y profesionales. <br>
+      </label></center><br><br>
     </div>
     <div class="container" id="container">
               <div class="form-container sign-up-container">
@@ -42,6 +42,16 @@
                 </div><br>
                 <button> Registrarse </button>
                 </form>
+
+                  <!-- Fondo del popup -->
+    <div class="popup-fondo" id="popupConfirmacion">
+      <!-- Contenido del popup -->
+      <div class="popup-contenido">
+          <h2>Confirmación</h2>
+          <p id="mensajeConfirmacion">{{ mensaje }}</p>
+          <button class="cerrar-btn" onclick="cerrarPopup()">Cerrar</button>
+      </div>
+  </div>
               </div>
 
               <div class="form-container sign-in-container">
@@ -55,9 +65,15 @@
                   <label for="password" class="form-label">Contraseña:</label>
                   <input type="password" class="form-control" name="password" required>
                 </div><br>
+                <select class="green-select" id="role" name="role" required> 
+                  <option value="usuario">Usuario</option> 
+                  <option value="docente">Docente</option> 
+                  <option value="admin">Administrador</option> 
+                </select><br>
                   <button> Ingresar </button>
                 </form>
               </div>
+              
 
         <div class="overlay-container">
           <div class="overlay">
@@ -74,7 +90,6 @@
           </div>
     </div>
     </div>
-    <div id="result"></div>
     <script>
       const res=document.getElementById('result');
       function showResult(data){
@@ -96,5 +111,33 @@
       container.classList.remove("right-panel-active");
     });
     </script>
-    
+
+    <script>
+      // Mostrar el popup si hay un mensaje de confirmación
+      document.addEventListener('DOMContentLoaded', function() {
+          var mensaje = "{{ mensaje }}";
+          if (mensaje) {
+              mostrarPopup();
+          }
+      });
+
+      function mostrarPopup() {
+          document.getElementById('popupConfirmacion').style.display = 'flex';
+      }
+
+      function cerrarPopup() {
+          document.getElementById('popupConfirmacion').style.display = 'none';
+      }
+
+      // Opcional: Puedes agregar un script para cerrar el popup haciendo clic fuera del contenido
+      document.querySelector('.popup-fondo').addEventListener('click', function(event) {
+          if (event.target === this) {
+              this.style.display = 'none';
+          }
+      });
+  </script>
 </html>
+
+  
+
+    

@@ -2,23 +2,21 @@
 {% block title %}Editar{% endblock %}
 {% block content %}
 <body>
-    <h1>Datos de Usuarios</h1>
+    <h1>  Materias Inscritas </h1>
     <table class="table-container">
         <tr>
+            <th>id</th>
+            <th>codigo de la materia</th>
             <th>carnet</th>
-            <th>Nombre</th>
-            <th>Apellido</th>
-            <th>Usuario</th>
-            <th>Accion</th>
+            <th>Detalle</th>
+            
         </tr>
-        {% for usuario in usuarios %}
+        {% for usuario in daprog %}
         <tr>
             <td>{{ usuario[0] }}</td>
             <td>{{ usuario[1] }}</td>
             <td>{{ usuario[2] }}</td>
             <td>{{ usuario[3] }}</td>
-            <td><form action="{{ url_for('borrar_dato', carnet=usuario[0]) }}" method="post"> 
-            <button type="submit">Borrar</button></form>
             </td>
             </tr>
         {% endfor %}

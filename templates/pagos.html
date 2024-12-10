@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inscripción y Pago de Cursos</title>
+    <link rel="stylesheet" href="/static/css/styles2.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Inscripción y Pago de Cursos</h1>
+        <form action="/registerpago" method="POST" class="formulario-inscripcion">
+            
+
+            <h2>Formulario de Inscripción</h2>
+
+            <label for="curso"> Curso :</label>
+            <select id="curso" name="curso" required>
+                {% for curso in dasc %}
+                <option value={{ curso[0] }}>{{ curso[1] }}</option>
+                {% endfor %}
+            </select>
+
+            <label for="carnet">Numero de carnet :</label>
+            <input type="carnet" id="carnet" name="carnet" required>
+
+            <label for="detalle"> Detalle :</label>
+            <select id="detalle" name="detalle" required>
+                <option value="incrito">Inscrito</option> 
+                <option value="pendente">Pendiente</option> 
+            </select>
+
+        <div class="seccion-pago">
+            <h2>Pago del Curso</h2>
+            
+                <label for="numero-tarjeta">Número de Tarjeta:</label>
+                <input type="text" id="numero-tarjeta" name="numero-tarjeta" required>
+
+                <label for="fecha-expiracion">Fecha de Expiración:</label>
+                <input type="text" id="fecha-expiracion" name="fecha-expiracion" placeholder="MM/AA" required>
+
+                <label for="cvv">CVV:</label>
+                <input type="text" id="cvv" name="cvv" required>
+
+                <button type="submit" class="btn">Pagar</button>
+            </form>
+        </div>
+        <button onclick="window.location.href='/ret'" class="btn-regresar">Regresar</button>
+    </div>
+</body>
+</html>

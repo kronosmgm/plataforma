@@ -1,0 +1,67 @@
+{% extends "docentes/basedoc.html" %}
+{% block title %}administrar{% endblock %}
+{% block content %}
+ 
+    
+        <h1>DASHBOARD</h1>
+        
+        </head>
+        <body>
+            <div class="bloque-texto">
+                <form action="/registrarcursosdoc" method="POST">
+                    <h1> AGREGAR CURSO </h1><br>
+                    <div>
+                      <label for="codigo" class="form-label">codigo de materia:</label>
+                      <input type="integer" class="form-control" name="codigo" required>
+                   </div>
+                    <div>
+                      <label for="nombre" class="form-label">Nombre:</label>
+                      <input type="text" class="form-control" name="nombre" required>
+                  </div>
+                  <div>
+                    <label for="descripcion" class="form-label">descripcion:</label>
+                    <input type="text" class="form-control" name="descripcion" required>
+                </div>
+                <div>
+                    <label for="ci_docente" class="form-label">Docente:</label>
+                    <input type="text" class="form-control" name="ci_docente" required>
+                </div><br>
+                  <button> Registrarse </button>
+                  </form>
+                </div>
+                <div class="popup-fondo" id="popupConfirmacion">
+                    <!-- Contenido del popup -->
+                    <div class="popup-contenido">
+                        <h2>Confirmación</h2>
+                        <p id="mensajeConfirmacion">{{ mensaje }}</p>
+                        <button class="cerrar-btn" onclick="cerrarPopup()">Cerrar</button>
+                    </div>
+                </div>
+                  <script>
+                    // Mostrar el popup si hay un mensaje de confirmación
+                    document.addEventListener('DOMContentLoaded', function() {
+                        var mensaje = "{{ mensaje }}";
+                        if (mensaje) {
+                            mostrarPopup();
+                        }
+                    });
+              
+                    function mostrarPopup() {
+                        document.getElementById('popupConfirmacion').style.display = 'flex';
+                    }
+              
+                    function cerrarPopup() {
+                        document.getElementById('popupConfirmacion').style.display = 'none';
+                    }
+              
+                    // Opcional: Puedes agregar un script para cerrar el popup haciendo clic fuera del contenido
+                    document.querySelector('.popup-fondo').addEventListener('click', function(event) {
+                        if (event.target === this) {
+                            this.style.display = 'none';
+                        }
+                    });
+                </script>
+          
+          
+        </body>
+    {% endblock %}

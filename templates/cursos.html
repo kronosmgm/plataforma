@@ -1,31 +1,31 @@
 {% extends "base.html" %}
-{% block title %}Editar{% endblock %}
+{% block title %}Cursos{% endblock %}
 {% block content %}
 <body>
     <center><h1>Descripcion del Curso</h1></center>
-    {% for usuario in usuarios %}
-    <div class="bloque-texto">
-        <center><h1>¡Bienvenidos a {{ usuario[1] }}!</h1>
-          Estamos emocionados de tenerte aquí en nuestra comunidad de aprendizaje en línea. <br>
-          En [Nombre de la Plataforma], creemos que la educación es la clave para desbloquear nuevas oportunidades y alcanzar tus metas personales y profesionales. <br>
-          Nuestra misión es brindar acceso a una educación de alta calidad y flexible, sin importar dónde te encuentres.<br>
-        </center>
-    <table class="table-container">
-        <tr>
-            <th>ID</th>
-            <th>Nombre</th>
-            <th>Accion</th>
-        </tr>
-        <tr>
-            <td>{{ usuario[0] }}</td>
-            <td>{{ usuario[1] }}</td>
-            <td><form action="{{ url_for('borrar_dato', carnet=usuario[0]) }}" method="post"> 
-            <button type="submit">Borrar</button></form>
-            </td>
-            </tr>
-        
-    </table>
-</div>
-{% endfor %}
+    
+    <div class="bloque2">
+        <h1>Perfil del Docente</h1>
+            <div class="docente-container">
+                
+                <img src="/static/images/fondo4.png" alt="Foto del Docente" class="docente-img">
+                <div class="docente-info">
+                    <h1 class="docente-nombre"> {{d_doc[1]}}  {{d_doc[2]}}</h1>
+                    <p class="docente-departamento">Docente de {{ecod[1] }}</p>
+                    <p class="docente-email">juan.perez@example.com</p>
+                    <p class="docente-telefono">+123456789</p>
+                    <p class="docente-biografia">Juan Pérez es un profesor con más de 20 años de experiencia en la enseñanza de matemáticas a nivel universitario. Ha publicado varios artículos en revistas científicas y es conocido por su metodología innovadora.</p>
+                </div>
+            </div>
+</div> 
+    
+    <div class="bloque1">
+        <div class="bloque-texto">
+        <h1>{{ ecod[1] }}</h1>
+        <h1>{{ ecod[0] }}</h1>
+        <h2>{{ ecod[2] }}</h2>
+    </div>
+    </div>
+    <center><button onclick="window.location.href='/cur'" class="cerrar-btn"> INCRIBIRSE</button></center>
 </body>
 {% endblock %}
